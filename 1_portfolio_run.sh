@@ -17,27 +17,32 @@ echo
 # Set up the example user
 #########################
 # USER_NAME="user1"
-# DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"
-# DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
+DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"
+DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
 FILE_PATH="usr/user1/"
 VENV="venv_mac/bin/python3.9"
 
 
 # Run Docker
 ############
-# echo "Setting Up Docker files:"
+echo "Setting Up Docker files:"
 
 # Pull latest image
-# docker pull "${DOCKER_IMAGE}"
+docker pull "${DOCKER_IMAGE}"
 
 # Run docker compose
-# docker-compose -f "${DOCKER_COMPOSE}" up -d
-# echo "MySQL Volume in docker needs extra time to setup the first time it runs."
-# read -p 'Select wait time (last successfull test was 40s): ' SLEEP_TIME
-# sleep ${SLEEP_TIME}
-# echo
-# echo "Finished Docker setup."
-# echo
+docker compose -f "${DOCKER_COMPOSE}" up -d
+# docker exec -it <CONTAINER ID> grafana-cli admin create-user --email admin@localhost --password newpassword
+# admin
+# newpassword
+# http://localhost:3000/d/F8HLAJr7z/portfolio?orgId=1
+
+echo "MySQL Volume in docker needs extra time to setup the first time it runs."
+read -p 'Select wait time (last successfull test was 40s): ' SLEEP_TIME
+sleep ${SLEEP_TIME}
+echo
+echo "Finished Docker setup."
+echo
 
 
 # Run Input Validation
@@ -49,10 +54,10 @@ echo
 
 # Run python files
 ##################
-# echo "Executing Portfolio Scripts:"
+echo "Executing Portfolio Scripts:"
 
-# echo "    - Executing set_mysql_setup."
-# ${VENV} ${FILE_PATH}set_mysql_setup.py
+echo "    - Executing set_mysql_setup."
+${VENV} ${FILE_PATH}set_mysql_setup.py
 
 echo "    - Executing get_daily_balance."
 ${VENV} ${FILE_PATH}get_daily_balance.py

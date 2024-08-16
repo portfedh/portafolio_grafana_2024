@@ -47,7 +47,7 @@ filename = 'outputs/returns_portfolio_user1_AllAccounts.csv'
 return_df.to_csv(filename, index=True, index_label='Date')
 
 # Save value to MySQL
-# returns_mysql = db.create_df(filename)
-# table_name = 'returns_portfolio_user1_AllAccounts'
-# returns_mysql.to_sql(name=table_name, con=engine, if_exists='replace',
-#                      index=True, index_label='Date')
+returns_mysql = db.create_df(filename)
+table_name = 'returns_portfolio_user1_AllAccounts'
+returns_mysql.to_sql(name=table_name, con=engine, if_exists='replace',
+                     index=True, index_label='Date')

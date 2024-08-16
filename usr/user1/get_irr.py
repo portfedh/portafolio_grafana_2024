@@ -86,8 +86,8 @@ df.to_csv("outputs/irr_xirr_user1.csv", index=False)
 # Save value to MySQL
 xirr = db.create_df('outputs/irr_xirr_user1.csv')
 
-# xirr.to_sql(
-#     name='irr_xirr_user1',
-#     con=engine,
-#     if_exists='replace',
-#     index=True, index_label='Date')
+xirr.to_sql(
+    name='irr_xirr_user1',
+    con=engine,
+    if_exists='replace',
+    index=True, index_label='Date')
