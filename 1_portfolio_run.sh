@@ -1,35 +1,32 @@
 #!/bin/bash
 # Bash script to:
 #   - Delete output files from a previous user.
-#   - Select a user to run the program.
-#   - Create the docker containers for the user.
-#   - Validate user input file.
-#   - Run program scripts to create dashboard. 
+#   - Set up the example user.
+#   - Run Docker Containers.
+#   - Validate user input files.
+#   - Create dashboard data. 
 
 
-# Cleanup any previous files
-############################
+# Delete output files from a previous user
+##########################################
 echo
 echo -e "Cleaning outputs directory:"
 rm -v outputs/*
 echo
 
 # Set up the example user
-#########################
-# USER_NAME="user1"
+##########################
 DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"
 DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
 FILE_PATH="usr/user1/"
 VENV="venv_mac/bin/python3.9"
 
 
-# Run Docker
-############
+# Run Docker Containers
+########################
 echo "Setting Up Docker files:"
-
 # Pull latest image
 docker pull "${DOCKER_IMAGE}"
-
 # Run docker compose
 docker compose -f "${DOCKER_COMPOSE}" up -d
 # docker exec -it <CONTAINER ID> grafana-cli admin create-user --email admin@localhost --password newpassword
@@ -45,15 +42,15 @@ echo "Finished Docker setup."
 echo
 
 
-# Run Input Validation
-######################
+# Validate user input files
+###########################
 echo "Running Input Validation:"
 ${VENV} input_validation.py
 echo
 
 
-# Run python files
-##################
+# Create dashboard data
+########################
 echo "Executing Portfolio Scripts:"
 
 echo "    - Executing set_mysql_setup."
