@@ -3,12 +3,9 @@ import os
 import sys
 import pandas as pd
 
-# Username
-user = sys.argv[1]
-print('\nSelected user: ', sys.argv[1], '\n')
 
 # User filepath
-user_dir = ('./inputs/' + user + '/')
+user_dir = ('./inputs/user1/')
 print('Selected user directory: ', user_dir, '\n')
 
 # Files in filepath
