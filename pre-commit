@@ -7,9 +7,9 @@ echo "You are about to commit. Running test files to check for errors."
 
 #Run Unit Tests
 ###############
-VENV="venv_mac/bin/python3.9"
+source venv_mac/bin/activate
 
-${VENV} -m unittest discover -v tests/scripts/
+python3.9 -m unittest discover -v tests/scripts/
 
 if [ $? -eq 0 ]; then
    echo "Tests passed. Continue with commit."

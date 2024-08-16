@@ -1,8 +1,14 @@
 #!/bin/bash
 # Bash script to:
-#   - Close MySQL database, 
 #   - Delete all csv files
+#   - Close MySQL database, 
 #   - Close down docker.
+
+# Remove Output Files
+#####################
+echo "Removing all CSV files:"
+rm -v outputs/*
+echo
 
 # Close MySQL
 #############
@@ -15,10 +21,4 @@ echo
 echo "Removing Docker files:"
 docker-compose -f "${DOCKER_COMPOSE}" down
 sleep 5
-echo
-
-# Remove Output Files
-#####################
-echo "Removing all CSV files:"
-rm -v outputs/*
 echo

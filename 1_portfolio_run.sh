@@ -7,7 +7,7 @@
 #   - Create dashboard data. 
 
 
-# Delete output files from a previous user
+# Delete output files from a previous use
 ##########################################
 echo
 echo -e "Cleaning outputs directory:"
