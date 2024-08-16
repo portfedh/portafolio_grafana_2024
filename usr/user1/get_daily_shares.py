@@ -32,12 +32,12 @@ filename = 'outputs/daily_share_quantity_user1_account1.csv'
 daily_share_quantity_df.to_csv(filename, index=True, index_label='Date')
 
 # Output to MySQL
-daily_share_quantity_df.to_sql(
-    name='daily_share_quantity_user1_account1',
-    con=engine,
-    if_exists='replace',
-    index=True,
-    index_label='Date')
+# daily_share_quantity_df.to_sql(
+#     name='daily_share_quantity_user1_account1',
+#     con=engine,
+#     if_exists='replace',
+#     index=True,
+#     index_label='Date')
 
 
 # Importing Trade History Account2
@@ -66,9 +66,9 @@ filename = 'outputs/daily_share_quantity_user1_account2.csv'
 daily_share_quantity_df.to_csv(filename, index=True, index_label='Date')
 
 # Output to MySQL
-daily_share_quantity_df.to_sql(
-    name='daily_share_quantity_user1_account2',
-    con=engine,
-    if_exists='replace',
-    index=True,
-    index_label='Date')
+# daily_share_quantity_df.to_sql(
+#     name='daily_share_quantity_user1_account2',
+#     con=engine,
+#     if_exists='replace',
+#     index=True,
+#     index_label='Date')

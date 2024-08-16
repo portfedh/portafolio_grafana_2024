@@ -26,11 +26,11 @@ file1 = 'outputs/daily_contributions_user1_account1.csv'
 daily_contribution_balance_df1.to_csv(file1, index=True, index_label='Date')
 
 # Output to MySQL
-daily_contribution_balance_df1.to_sql(
-    name='daily_contributions_user1_account1',  # Table name
-    con=engine,
-    if_exists='replace',
-    index=True, index_label='Date')
+# daily_contribution_balance_df1.to_sql(
+#     name='daily_contributions_user1_account1',  # Table name
+#     con=engine,
+#     if_exists='replace',
+#     index=True, index_label='Date')
 
 
 # Account 2
@@ -51,11 +51,11 @@ file2 = 'outputs/daily_contributions_user1_account2.csv'
 daily_contribution_balance_df2.to_csv(file2, index=True, index_label='Date')
 
 # Output to MySQL
-daily_contribution_balance_df2.to_sql(
-    name='daily_contributions_user1_account2',
-    con=engine,
-    if_exists='replace',
-    index=True, index_label='Date')
+# daily_contribution_balance_df2.to_sql(
+#     name='daily_contributions_user1_account2',
+#     con=engine,
+#     if_exists='replace',
+#     index=True, index_label='Date')
 
 
 # Sum all accounts
@@ -72,10 +72,10 @@ file3 = 'outputs/daily_contributions_user1_AllAccounts.csv'
 total_contributions.to_csv(file3, index=True, index_label='Date')
 
 # Output to MySQL
-total_contributions_df2 = db.create_df(file3)
+# total_contributions_df2 = db.create_df(file3)
 
-total_contributions_df2.to_sql(
-    name='daily_contributions_user1_AllAccounts',
-    con=engine,
-    if_exists='replace',
-    index=True, index_label='Date')
+# total_contributions_df2.to_sql(
+#     name='daily_contributions_user1_AllAccounts',
+#     con=engine,
+#     if_exists='replace',
+#     index=True, index_label='Date')

@@ -46,9 +46,9 @@ filename = 'outputs/daily_subtotals_user1_account1.csv'
 interpol_acc2_df.to_csv(filename, index=True, index_label='Date')
 
 # Output to MySQL
-table_name = 'daily_subtotals_user1_account1'
-interpol_acc2_df.to_sql(name=table_name, con=engine, if_exists='replace',
-                         index=True, index_label='Date')
+# table_name = 'daily_subtotals_user1_account1'
+# interpol_acc2_df.to_sql(name=table_name, con=engine, if_exists='replace',
+#                          index=True, index_label='Date')
 
 # Account 2
 ###########
@@ -89,6 +89,6 @@ filename = 'outputs/daily_subtotals_user1_account2.csv'
 interpol_acc2_df.to_csv(filename, index=True, index_label='Date')
 
 # Output to MySQL
-table_name = 'daily_subtotals_user1_account2'
-interpol_acc2_df.to_sql(name=table_name, con=engine, if_exists='replace',
-                        index=True, index_label='Date')
+# table_name = 'daily_subtotals_user1_account2'
+# interpol_acc2_df.to_sql(name=table_name, con=engine, if_exists='replace',
+#                         index=True, index_label='Date')

@@ -20,6 +20,7 @@ echo
 # DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"
 # DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
 FILE_PATH="usr/user1/"
+VENV="venv_mac/bin/python3.9"
 
 
 # Run Docker
@@ -42,16 +43,16 @@ FILE_PATH="usr/user1/"
 # Run Input Validation
 ######################
 echo "Running Input Validation:"
-${VENV} input_validation.py ${USER_NAME}
+${VENV} input_validation.py
 echo
 
 
 # Run python files
 ##################
-echo "Executing Portfolio Scripts:"
+# echo "Executing Portfolio Scripts:"
 
-echo "    - Executing set_mysql_setup."
-${VENV} ${FILE_PATH}set_mysql_setup.py
+# echo "    - Executing set_mysql_setup."
+# ${VENV} ${FILE_PATH}set_mysql_setup.py
 
 echo "    - Executing get_daily_balance."
 ${VENV} ${FILE_PATH}get_daily_balance.py

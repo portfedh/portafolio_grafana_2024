@@ -36,14 +36,14 @@ filename2 = 'outputs/daily_prices_interpolated_user1_account1.csv'
 df_interpol.to_csv(filename2, index=True, index_label='Date')
 
 # Output to MySQL
-prices_df.columns = (prices_df.columns.str.replace('.', '_', regex=False))
-table_name = 'daily_prices_user1_account1'
-prices_df.to_sql(
-    name=table_name,
-    con=engine,
-    if_exists='replace',
-    index=True,
-    index_label='Date')
+# prices_df.columns = (prices_df.columns.str.replace('.', '_', regex=False))
+# table_name = 'daily_prices_user1_account1'
+# prices_df.to_sql(
+#     name=table_name,
+#     con=engine,
+#     if_exists='replace',
+#     index=True,
+#     index_label='Date')
 
 
 # Importing Trade History Account 2
@@ -74,11 +74,11 @@ filename2 = 'outputs/daily_prices_interpolated_user1_account2.csv'
 df_interpol.to_csv(filename2, index=True, index_label='Date')
 
 # Output to MySQL
-prices_df.columns = (prices_df.columns.str.replace('.', '_', regex=False))
-table_name = 'daily_prices_user1_account2'
-prices_df.to_sql(
-    name=table_name,
-    con=engine,
-    if_exists='replace',
-    index=True,
-    index_label='Date')
+# prices_df.columns = (prices_df.columns.str.replace('.', '_', regex=False))
+# table_name = 'daily_prices_user1_account2'
+# prices_df.to_sql(
+#     name=table_name,
+#     con=engine,
+#     if_exists='replace',
+#     index=True,
+#     index_label='Date')
