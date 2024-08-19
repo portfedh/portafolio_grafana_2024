@@ -9,9 +9,6 @@ def move_up():
     join_path = os.path.join(dir_name, parent_dir)
     join_path2 = os.path.join(join_path, parent_dir)
     PROJECT_ROOT = os.path.abspath(join_path2)
-    # print()
-    # print(PROJECT_ROOT)
-    # print()
     return sys.path.append(PROJECT_ROOT)
 
 
