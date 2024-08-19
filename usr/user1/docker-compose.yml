@@ -1,7 +1,7 @@
 # Create MySQL container and Grafana container
 services:
   my_sql:
-  # container_name
+    # container_name
     image: mysql
     ports:
       - "3306:3306"
@@ -13,7 +13,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password1
   grafana:
-    image: portfedh/portfolio_dashboard:user1_grafana
+    image: portfedh/portfolio_dashboard:user1_grafana_20240816
     ports:
       - "3000:3000"
     environment:

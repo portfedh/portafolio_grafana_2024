@@ -2,10 +2,10 @@
 # Bash script to:
 #   - Delete output files from a previous user.
 #   - Set up the example user.
+#   - Set up the virtual environment.
 #   - Run Docker Containers.
 #   - Validate user input files.
 #   - Create dashboard data. 
-
 
 # Delete output files from a previous use
 ##########################################
@@ -16,11 +16,13 @@ echo
 
 # Set up the example user
 ##########################
-DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"
+DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana_20240816"
 DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
 FILE_PATH="usr/user1/"
-VENV="venv_mac/bin/python3.9"
 
+# Set up the virtual environment
+################################
+VENV="venv_mac/bin/python3.9"
 
 # Run Docker Containers
 ########################
@@ -29,10 +31,12 @@ echo "Setting Up Docker files:"
 docker pull "${DOCKER_IMAGE}"
 # Run docker compose
 docker compose -f "${DOCKER_COMPOSE}" up -d
-# docker exec -it <CONTAINER ID> grafana-cli admin create-user --email admin@localhost --password newpassword
+
+# If you forget the password, you can reset it with the following command:
+##########################################################################
+# docker exec -it f06ec9a8b63a grafana-cli admin reset-admin-password newpassword
 # admin
 # newpassword
-# http://localhost:3000/d/F8HLAJr7z/portfolio?orgId=1
 
 echo "MySQL Volume in docker needs extra time to setup the first time it runs."
 read -p 'Select wait time (last successfull test was 40s): ' SLEEP_TIME
@@ -41,13 +45,11 @@ echo
 echo "Finished Docker setup."
 echo
 
-
 # Validate user input files
 ###########################
 echo "Running Input Validation:"
 ${VENV} input_validation.py
 echo
-
 
 # Create dashboard data
 ########################

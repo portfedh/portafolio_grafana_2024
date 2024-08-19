@@ -66,32 +66,15 @@ If you decide want to use it for your portfolio, then follow the instructions in
 
 - Make sure docker is up and running.
 
-- Delete thes file named:
-
-```bash
-0_check_computer.sh
-```
-
 - Open the following file in your code editor:
 
 ```bash
 01_portfolio_run.sh
 ```
 
-- Uncomment the following lines in the 'check computer' section:
-
-```bash
-# VENV="<Path_to_your_python_file_here>"
-# echo "${VENV}"
-```
-
-- Modify the 'VENV' variable and add the path to your python virtual environment or your python executable.
+- Modify the 'VENV' variable and add the path to your python virtual environment.
 
 - Now delete the line with the following text:
-
-```bash
-source 0_check_computer.sh
-```
 
 Thats it!
 
@@ -115,23 +98,17 @@ The script will ask how long to wait for MySQL Volume to set up.
 
 - On future runs select 1 second.
 
-When asked to chose a username select:
+When asked to enter a username use:
 
-> user1
+> admin
 
-You will then be asked for a password to decrypt the files. Select:
+For the password use:
 
-> 1234abc
+> newpassword
 
 Wait for all scripts to execute.
 
-Open you browser and go to the grafana dashboard at [localhost:3000/](localhost:3000/)
-
-- The default credentials for the demo user are:
-
-> username: admin
->
-> password: admin2
+Open you browser and go to the Grafana dashboard at [localhost:3000/](localhost:3000/)
 
 Browse through the Portfolio Dashboard. You should see something like this:
 
@@ -140,8 +117,7 @@ Browse through the Portfolio Dashboard. You should see something like this:
 When you are ready to close everything up, head back to the terminal and execute the closing bash script:
 
 ```bash
-# Closing the application
-./02_portfolio_close.sh
+./2_portfolio_close.sh
 ```
 
 Thats it!
@@ -168,7 +144,7 @@ Here is a brief description of the information you should add in every file:
 
 Contributions file: The CSV file should have the date and amount of every deposit or withdrawal you've made to that account. Deposits to the account should be positive numbers (+) and withdrawals from the account should be negative (-) numbers.
 
-Account balance file: The CSV file should have a date value with the last day of each month and the total balance of the bank statement for that month. If you add more than one bank account, the date range in bothfile must match, even if the balance is $0 for one of the accounts.
+Account balance file: The CSV file should have a date value with the last day of each month and the total balance of the bank statement for that month. If you add more than one bank account, the date range in both files must match, even if the balance is $0 for one of the accounts.
 
 Trade history file: The CSV file should have the date, the company ticker, and each trade you´ve made in that account (buy or sell, not dividends). Buying shares should be written as positive numbers (+) and selling shares as negative (-) numbers.
 
@@ -191,31 +167,17 @@ You will find a more detailed explanation of how the scripts work there.
 
 If you still get stuck, post an issue and I'll be happy to help.
 
-## Encrypting your data
+## Protecting your data
 
-Right now all your input data is unencrypted at rest.
+All your data is in the CSV files located in the Input and Output directory.
 
-To encrypt you files go to the project root directory and execute the following command:
+Grafana is only a visualizer and does not store any data.
 
-```bash
-python3 file_encryption.py <username> encrypt
-```
+MySQL container only keeps the data while the session exists, so its erased every time the container is deleted.
 
-You will be asked to set a password to encrypt your files.
+Make sure to execute the "2_portfolio_close.sh" file when you are done to delete the docker containers and the outputs folder content.
 
-After this, all the files under '/input/<username>/' will be encrypted.
-
-Make sure to save your encryption password, as there is no recovery option if you forget it.
-
-If you want to manually decrypt your files, you can do so using the following command:
-
-```bash
-python3 file_encryption.py <username> decrypt
-```
-
-You will be prompted for your password and then all files will be decrypted.
-
-Remember to always leave your data encrypted at rest.
+If you use GitHub or GitLab, make sure your inputs folder is in the .gitignore file.
 
 ## Making all your scripts run automatically
 
@@ -225,16 +187,10 @@ To run all your scripts with a single command you will use the following:
 ./1_portfolio_run.sh
 ```
 
-To be able to use the bash script, you must first make a few changes so it will find the files for the user your just created.
-
-In the 'Check selected user' section, add a new elif statement with the username you just added:
+To be able to use the bash script, you must first make a few changes so it will find the files for the user your just created:
 
 ```bash
-elif [[ "${USER_NAME}" == "user1" ]]  # Change "user1" for the username you selected.
-then
-  echo "You are user1."  # Update the name here as well.
-  echo
-  DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana"  # Leave this por now, you will update this later.
+  DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana_2024_08"  # Leave this por now, you will update this later.
   DOCKER_COMPOSE="./usr/user1/docker-compose.yml"  # Update <user1>  to the username you selected.
   FILE_PATH="usr/user1/" # Update <user1>  to the username you selected.
   echo
@@ -242,7 +198,7 @@ then
 
 Once you have added your user files. Execute the code and it should run all your files and set up Grafana.
 
-## Customizing your grafana dashboard
+## Customizing your Grafana dashboard
 
 Grafana is an open source data visualizer that will connect to MySQL and read the data.
 
@@ -335,7 +291,7 @@ You should be able to do it in a few minutes and your portfolio will reflect the
 
 ## Conclusion
 
-I made this project to automate a recurring task.
+I made this project to automate a tedious recurring task.
 
 If you have any ideas as to how to make this project better, please feel free to reach out.
 
