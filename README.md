@@ -1,6 +1,6 @@
 # Investment Portfolio Visualizer
 
-**ToDo: Create GIF example here.**
+![Portfolio Dashboard](dashboad.png)
 
 ## What it does
 
@@ -17,6 +17,8 @@ Its main features are:
 - You can aggregate the data in a way that makes sense to you.
 
 - Graphs are dynamic so you can analyze different time periods.
+
+![Portfolio Dashboard](dashboad2.png)
 
 ## How to Install
 
@@ -51,8 +53,6 @@ The customized portfolio image that will be downloaded will be:
 This is the docker image that has the demo user portfolio.
 
 Its meant as a starting point for you to create your own customized dashboards.
-
-![Portfolio Dashboard](dashboad.png)
 
 ## How to Use
 
