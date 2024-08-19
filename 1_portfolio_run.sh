@@ -18,7 +18,7 @@ echo
 
 # Set up the example user
 ##########################
-DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana_20240816"
+DOCKER_IMAGE="portfedh/portfolio_dashboard:user1_grafana_2024_08"
 DOCKER_COMPOSE="./usr/user1/docker-compose.yml"
 FILE_PATH="usr/user1/"
 

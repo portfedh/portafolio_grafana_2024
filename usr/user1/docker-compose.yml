@@ -13,7 +13,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password1
   grafana:
-    image: portfedh/portfolio_dashboard:user1_grafana_20240816
+    image: portfedh/portfolio_dashboard:user1_grafana_2024_08
     ports:
       - "3000:3000"
     environment:
