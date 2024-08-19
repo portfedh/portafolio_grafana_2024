@@ -20,3 +20,8 @@ else
    exit 1
 fi
 
+
+# End of script
+# Path: pre-commit
+# You must make the script executable by running chmod +x pre-commit
+# You must also make commits from the terminal for it to work.

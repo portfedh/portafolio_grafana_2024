@@ -11,7 +11,9 @@
 ##########################################
 echo
 echo -e "Cleaning outputs directory:"
-rm -v outputs/*
+if [ "$(ls -A outputs)" ]; then
+  rm -v outputs/*
+fi
 echo
 
 # Set up the example user

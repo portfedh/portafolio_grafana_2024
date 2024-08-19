@@ -52,7 +52,7 @@ This is the docker image that has the demo user portfolio.
 
 Its meant as a starting point for you to create your own customized dashboards.
 
-![ToDo: Image of dashboard here](https://google.com)
+![Portfolio Dashboard](dashboad.png)
 
 ## How to Use
 
@@ -112,7 +112,7 @@ Open you browser and go to the Grafana dashboard at [localhost:3000/](localhost:
 
 Browse through the Portfolio Dashboard. You should see something like this:
 
-![ToDo: Image of the portfolio](localhost:3000/)
+![Portfolio Dashboard](dashboard3.png)
 
 When you are ready to close everything up, head back to the terminal and execute the closing bash script:
 
