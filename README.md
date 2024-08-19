@@ -18,7 +18,7 @@ Its main features are:
 
 - Graphs are dynamic so you can analyze different time periods.
 
-![Portfolio Dashboard](dashboad2.png)
+![Portfolio Dashboard](dashboard2.png)
 
 ## How to Install
 
