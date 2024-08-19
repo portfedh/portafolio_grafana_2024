@@ -1,0 +1,18 @@
+MySQL Code:
+SELECT 
+  Date AS "time",
+  ((VOO / (SELECT VOO FROM daily_prices_user1_account2 WHERE Date = (SELECT MIN(Date) FROM daily_prices_user1_account2 WHERE Date >= $__timeFrom())) - 1) * 100) AS "VOO Prices %"
+FROM 
+  daily_prices_user1_account2
+WHERE 
+  Date >= $__timeFrom() AND Date <= $__timeTo()
+ORDER BY 
+
+
+InfluxDB Code:
+SELECT cumulative_sum("change")
+FROM (
+    SELECT difference("BAC_MX")/first("BAC_MX")*100.0 as "change"
+    FROM "daily_prices_CLG_GBM" 
+    WHERE $timeFilter fill(previous)
+) 
